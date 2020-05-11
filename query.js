@@ -87,8 +87,38 @@
 // });
 
 
+// document.addEventListener('DOMContentLoaded',() => {
+//     document.querySelector('#color-change').onchange = function(){
+//         document.querySelector('#hello').style.color = this.value;
+//     };
+// });
+
+
+// document.addEventListener('DOMContentLoaded',() => {
+//     setInterval(count, 1000);
+// })
+
+// let counter = 0;
+
+// function count(){
+//     counter++;
+//     document.querySelector('#counter').innerHTML = counter;
+// }
+
+
+if (!localStorage.getItem('counter'))
+    localStorage.setItem('counter', 0);
+
 document.addEventListener('DOMContentLoaded',() => {
-    document.querySelector('#color-change').onchange = function(){
-        document.querySelector('#hello').style.color = this.value;
-    };
+    document.querySelector('#counter').innerHTML = localStorage.getItem('counter');
+
+    document.querySelector('button').onclick = () => {
+
+        let counter = localStorage.getItem('counter');
+        counter++;
+
+        document.querySelector('#counter').innerHTML = counter;
+        localStorage.setItem('counter', counter);
+    }
+
 });
